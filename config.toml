@@ -1,4 +1,13 @@
 baseURL = "http://caioflavio.github.io/"
 languageCode = "pt-br"
-title = "Caio Dev Backend"
-theme = "kiera"
+title = "Caio Flávio Blog"
+theme = "hugo-kiera"
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "Sobre"
+    pre = "<i class='fa fa-heart'></i>"
+    url = "/about/"
+    weight = -110
