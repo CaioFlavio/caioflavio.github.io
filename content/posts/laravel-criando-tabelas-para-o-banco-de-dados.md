@@ -12,7 +12,7 @@ coverImage: /images/uploads/cover-post.jpg
 ---
 Esse artigo será focado em listar os passos pra criação de tabelas no banco de dados utilizando o laravel. Para fazer isso iremos utilizar as migrations.
 
-# Criando migrations pelo artisan
+## Criando migrations pelo artisan
  
 Podemos criar os arquivos de migrations no Laravel utilizando os seguintes comandos:
 
