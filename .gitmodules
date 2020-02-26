@@ -4,3 +4,7 @@
 [submodule "static/admin"]
 	path = static/admin
 	url = https://github.com/woliveiras/netlify-cms-base.git
+[submodule "caioflavio.github.io"]
+	path = caioflavio.github.io
+	url = https://github.com/CaioFlavio/caioflavio.github.io.git
+	branch = master
