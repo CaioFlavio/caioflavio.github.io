@@ -1,6 +1,18 @@
 ---
-title: Laravel - Configurando um servidor Graphql
+title: Laravel - Configurando um servidor Graphql - Parte 1
 date: '2020-02-27T15:45:20-03:00'
+categories:
+  - PHP
+  - Laravel
+  - GraphQL
+tags:
+  - PHP
+  - Laravel
+  - GraphQL
+keywords:
+  - PHP
+  - Laravel
+  - GraphQL
 autoThumbnailImage: false
 thumbnailImagePosition: top
 coverImage: /images/uploads/cover-post.jpg
