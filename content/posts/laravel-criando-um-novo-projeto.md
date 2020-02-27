@@ -18,8 +18,15 @@ Neste artigo aprendemos como iniciar um novo projeto no laravel e iniciar um ser
 
 ## Iniciando um novo projeto via composer
 
+Pra instalar a versão mais recente do larevel podemos utilizar o seguinte comando:
+
 ```
 composer create-project --prefer-dist laravel/laravel project_name
+```
+
+Caso você precise de alguma versão especifica para o seu projeto devido a compatibilidade com algum pacote a versão pode ser especificada como no comando abaixo:
+```
+composer create-project --prefer-dist laravel/laravel project_name "5.8.*"
 ```
 
 ## Built-in server
@@ -31,5 +38,5 @@ php artisan serve
 ```
 
 ## Referencias
-[Documentação Laravel](ttps://laravel.com/docs/6.x#installing-laravel "Laravel Doc")
+[Documentação Instalação Laravel](https://laravel.com/docs/6.x#installation "Laravel Docs")
 
