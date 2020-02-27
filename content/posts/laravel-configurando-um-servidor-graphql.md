@@ -23,13 +23,13 @@ Iremos configurar um servidor GraphQL utilizando o laravel e os pacotes noh4ck/g
 
 ## Primeiros passos
 
-A primeira coisa a fazer é instalar uma versão 5.x.x do laravel, pois o pacto noh4ck/graphiql ainda não possui suporte pra versão 6.x.x. Portanto iremos utilizar o seguinte comando:
+A primeira coisa a fazer é instalar uma versão 5.x.x do laravel, pois o pacote noh4ck/graphiql ainda não possui suporte pra versão 6.x.x. Portanto iremos utilizar o seguinte comando:
 
 ```
 composer create-project --prefer-dist laravel/laravel graphql-api "5.8.*"
 ```
 
-Agora, dentro da pasta do nosso projeto instalaremos via composer os dois pacotes para podermos servir o servidor GraphQL.
+Agora, dentro da pasta do nosso projeto instalaremos via composer os dois pacotes para podermos subir o servidor GraphQL.
 
 ```
 composer require rebing/graphql-laravel && php artisan vendor:publish --provider="Rebing\GraphQL\GraphQLServiceProvider"
@@ -39,28 +39,28 @@ composer require rebing/graphql-laravel && php artisan vendor:publish --provide
 composer require "noh4ck/graphiql:@dev" && artisan graphiql:publish
 ```
 
-Após a instalação dos pacotes, vamos testar a aplicação utilizando o servidor built-in do laravel, através do comando.
+Após a instalação dos pacotes, vamos testar a aplicação utilizando o servidor embutido do laravel, através do comando.
 ```
 php artisan serve
 ```
 
-No browser de sua preferencia, é possível acessar o GraphQl UI acessando o http://127.0.0.1:8000/graphql-ui 
+No browser de sua preferencia, é possível acessar o GraphQl UI acessando o [http://127.0.0.1:8000/graphql-ui](http://127.0.0.1:8000/graphql-ui)
 
-![GraphQL UI](https://imgur.com/F1rhVqo "Laravel GraphQL UI")
+![GraphQL UI](https://i.imgur.com/F1rhVqo.png "Laravel GraphQL UI")
 
-Pra ele funcionar corretamente ainda é necessário configurar as tabelas que serviram a informação para API, para este tutorial utlizaremos um banco SQLite. No arquivo de configuração (.env) vamos remover todas as configurações relacionadas a banco de dados e deixar somente a opção DB_CONNECTION com o valor sqlite.
+Pra ele funcionar corretamente ainda é necessário configurar as tabelas que disponibilizarão a informação para API. Para este tutorial utilizaremos um banco SQLite. No arquivo de configuração (.env) vamos remover todas as configurações relacionadas a banco de dados e deixar somente a opção DB_CONNECTION com o valor sqlite.
 
 ```
 DB_CONNECTION=sqlite
 ```
 
-e agora criaremos o arquido de banco na pasta base do nosso projeto
+e agora criaremos o arquivo de banco na pasta base do nosso projeto
 
 ```
 touch database/database.sqlite
 ```
 
-Agora rodaremos as migrations, onde o laravel criará a tabela de usuários.
+Agora rodaremos as _**Migrations**_ onde o Laravel criará a tabela de usuários.
 
 ```
 php artisan migrate 
@@ -75,9 +75,7 @@ e em seguinda no console do tinker, podemos usar o seguinte comando:
 factory(App\User::class, 100)->create()
 ```
 
-Agora precisamos criar os arquivos que irão lidar com as consultas a tabela de usuários:
-
-O primeiro passo é criar um "type". De acordo com a documentação uma "Eloquent Model" só é necessária quando especificamos relações entre tabelas. No diretório app/GraphQL/Types crie o arquivo UserType.php, e adicione o seguinte conteúdo.
+Agora precisamos criar os arquivos que irão lidar com as consultas do GraphQL a tabela de usuários. O primeiro passo para isso é criar um "type". De acordo com a documentação uma _**Eloquent Model**_ só é necessária quando especificamos relações entre tabelas. No diretório _app/GraphQL/Types_ crie o arquivo _UserType.php_, e adicione o seguinte conteúdo.
 
 
 ```php
@@ -133,7 +131,7 @@ Agora precisamos adicionar essa classe ao arquivo de configuração do graphql (
 ]
 ```
 
-Agora precisamos definir uma _**Query**_ que retorne este _**Type**_. No diretório app/GraphQL/Queries crie o arquivo UsersQuery.php, e adicione o seguinte conteúdo.
+Agora precisamos definir uma _**Query**_ que retorne este _**Type**_. No diretório _app/GraphQL/Queries_ crie o arquivo _UsersQuery.php_ e adicione o seguinte conteúdo.
 
 ```php
 <?php
@@ -185,7 +183,7 @@ class UsersQuery extends Query
     }
 }
 ```
-e em seguida precisamos adicionar a _**Query**_ ao arquivo de configuração do GraphQL (config/graphql.php).
+Agora precisamos adicionar a _**Query**_ ao arquivo de configuração do GraphQL (config/graphql.php).
 
 ```php
 'schemas' => [
@@ -198,13 +196,13 @@ e em seguida precisamos adicionar a _**Query**_ ao arquivo de configuração do 
 ]
 ```
 
-Agora podemos rodar novamente o nosso servidor embutido com o comando:
+Desse modo podemos rodar novamente o nosso servidor embutido com o comando:
 
 ```
 php artisan serve
 ```
 
-Acessando http://127.0.0.1:8000/graphql-ui, podemos rodar a seguinte query:
+Acessando [http://127.0.0.1:8000/graphql-ui](http://127.0.0.1:8000/graphql-ui), podemos rodar a seguinte query:
 
 ```
 query FetchUsers {
@@ -216,7 +214,7 @@ query FetchUsers {
 ```
 
 e obteremos o seguinte resultado:
-![GraphQL UI Query](https://imgur.com/DwI4tm2 "Laravel GraphQL Query Funcionando")
+![GraphQL UI Query](https://i.imgur.com/DwI4tm2.png "Laravel GraphQL Query Funcionando")
 
 ## Conclusão
 
